@@ -1,0 +1,15 @@
+server:
+  port: 8080
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: bookModule
+          uri: http://localhost:8082/
+          predicates:
+            - Path=/books/**
+        - id: moviesModule
+          uri: http://localhost:8081/
+          predicates:
+            - Path=/movies/**
